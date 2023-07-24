@@ -139,14 +139,21 @@ def shopping():
                 add_to_cart(super_market, shopping_cart, department, total)
                 while True:
                     print('*********************************************************************')
-                    next = input('| "add" items, "delete" items, "view" cart, or "checkout": ')
+                    next = input('| "add" items, "delete" items, "view" cart, "clear" cart, or "checkout": ')
                     print('*********************************************************************')
                     if next == 'add':
                         break
                     elif next == 'delete':
                         del_item(shopping_cart, total)
                     elif next == 'view':
-                        view_cart(shopping_cart, total)                       
+                        if not shopping_cart:
+                            print('~ Your shopping cart is empty.')
+                        else:
+                            view_cart(shopping_cart, total)
+                    elif next == 'clear':
+                        shopping_cart.clear()
+                        total[0] = 0                   
+                        print('~ Your shopping cart is empty.')
                     elif next == 'checkout':
                                 print("Thank you for shopping at Super Market! Here's your receipt. (:")
                                 print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
@@ -167,7 +174,17 @@ def shopping():
                             print('~ Your shopping cart is empty.')
                             print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
                         else:
-                            del_item(super_market, shopping_cart, department, total)                     
+                            del_item(super_market, shopping_cart, department, total) 
+                    elif next == 'view':
+                        if not shopping_cart:
+                            print('~ Your shopping cart is empty.')
+                        else:
+                            view_cart(shopping_cart, total)
+                    elif next == 'clear':
+                        shopping_cart.clear()
+                        total[0] = 0
+                        if not shopping_cart:
+                            print('~ Your shopping cart is empty.')                   
                     elif next == 'checkout':
                             if not shopping_cart:
                                 print('~ Your shopping cart is empty.')
