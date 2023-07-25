@@ -73,14 +73,14 @@ def view_cart(cart, total):
     for key, value in cart.items():
         print(f"\t{key} - {cart[key]['price']} x{cart[key]['quantity']}\n")
 
-    print(f"Your total is: ${total[0]}")
+    print(f"Your total is: ${total[0]:.2f}")
 
 def checkout(cart, total):
     print('Receipt: ')
     print('------------\n')
     for key, value in cart.items():
-        print(f"\t{key} - {cart[key]['price']} x{cart[key]['quantity']}: ${cart[key]['quantity']*cart[key]['price']}\n")
-    print(f"Your total is: ${total[0]}")
+        print(f"\t{key} - {cart[key]['price']} x{cart[key]['quantity']}: ${(cart[key]['quantity']*cart[key]['price']):.2f}\n")
+    print(f"Your total is: ${total[0]:.2f}")
     print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
 
 
